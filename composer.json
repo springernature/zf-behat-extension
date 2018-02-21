@@ -32,6 +32,8 @@
         "psr-4": {
             "Application\\": "testapp/module/Application/src/"
         }
+    },
+    "scripts": {
+        "test": "phpspec run --format dot"
     }
-
 }
