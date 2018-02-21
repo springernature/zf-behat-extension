@@ -1,0 +1,4 @@
+suites:
+    default:
+        namespace: SpringerNature\Behat\ZFExtension
+        psr4_prefix: SpringerNature\Behat\ZFExtension

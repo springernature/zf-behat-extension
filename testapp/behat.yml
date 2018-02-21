@@ -1,0 +1,23 @@
+default:
+    formatters:
+        progress: true
+    extensions:
+        SpringerNature\Behat\ZFExtension:
+          bootstrap: bootstrap.php
+        Behat\MinkExtension:
+            default_session: 'zend'
+            sessions:
+                zend:
+                    zend: ~
+    suites:
+      driver:
+        paths:
+         features: features/driver
+        contexts:
+          - Behat\MinkExtension\Context\MinkContext
+      context:
+        paths:
+         features: features/context
+        contexts:
+          - Application\Context\ApplicationContext:
+              manager: 'ControllerManager'
