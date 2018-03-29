@@ -1,8 +1,6 @@
 <?php
-
-return [
+ $config = [
     'modules' => [
-        'Zend\Router',
         'Application',
     ],
     'module_listener_options' => [
@@ -11,3 +9,8 @@ return [
         ],
     ],
 ];
+
+if (class_exists('Zend\Router\Module')) {
+    array_unshift($config['modules'], 'Zend\Router');
+}
+return $config;

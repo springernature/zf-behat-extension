@@ -9,6 +9,12 @@ class Module
 {
     public function getConfig()
     {
+        $factory = InvokableFactory::class;
+        if ( ! class_exists($factory)) {
+            $factory = function () {
+                return new IndexController();
+            };
+        }
         return [
             'router' => [
                 'routes' => [
@@ -26,7 +32,7 @@ class Module
             ],
             'controllers' => [
                 'factories' => [
-                    IndexController::class => InvokableFactory::class,
+                    IndexController::class => $factory,
                 ],
             ],
             'view_manager' => [

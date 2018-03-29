@@ -37,5 +37,7 @@ class ZendFactorySpec extends ObjectBehavior
         $definition->getClass()->shouldBe('SpringerNature\Behat\ZFExtension\Driver\KernelDriver');
         $args = $definition->getArguments();
         $args[0]->shouldBeAnInstanceOf('Symfony\Component\DependencyInjection\Reference');
-        $args[0]->__toString()->shouldBe('springernature\behat\zfextension\zend\zendclient');
-    }}
+        $args[0]->__toString()->shouldMatch('#^springernature\\\\behat\\\\zfextension\\\\zend\\\\zendclient$#i');
+    }
+
+}
