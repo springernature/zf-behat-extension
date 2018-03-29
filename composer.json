@@ -6,23 +6,23 @@
     "authors": [
         {
             "name": "Olivier Lechevalier",
-            "email": "o.lechevalier@nature.com"
+            "email": "olivier.lechevalier@gmail.com"
         }
     ],
     "require": {
         "php": ">=5.3.3",
-        "behat/behat": "~3.0,>=3.0.4",
-        "zendframework/zend-servicemanager": "^2 || ^3",
-        "zendframework/zend-mvc": "^2 || ^3",
+        "behat/behat": "^3.0.4",
+        "zendframework/zend-servicemanager": "~2|~3",
+        "zendframework/zend-mvc": "~2|~3",
         "symfony/http-foundation": "^3.2"
     },
     "require-dev": {
+        "symfony/dependency-injection": "~2|~3",
+        "zendframework/zend-console": "~2",
         "phpspec/phpspec": "^3.0",
         "behat/mink-extension": "~2.0",
-        "behat/mink-browserkit-driver": "~1.0",
-        "symfony/symfony": "~2.1|~3.0",
-        "zendframework/zend-router": "^3.0",
-        "zendframework/zend-console": "^2.0"
+        "behat/mink-browserkit-driver": "~1.3",
+        "zendframework/zend-router": "~2|~3"
     },
 
     "autoload": {
@@ -32,6 +32,13 @@
         "psr-4": {
             "Application\\": "testapp/module/Application/src/"
         }
+    },
+    "scripts": {
+        "test": [
+            "@spec",
+            "@behat"
+        ],
+        "spec": "phpspec run --format dot",
+        "behat": "cd testapp && behat"
     }
-
 }

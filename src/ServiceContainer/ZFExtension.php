@@ -84,7 +84,9 @@ class ZFExtension implements ExtensionInterface
 
     private function loadServiceManager(ContainerBuilder $container, $appConfigPath)
     {
-        Console::overrideIsConsole(false);
+        if (class_exists(Console::class)) {
+            Console::overrideIsConsole(false);
+        }
         $serviceManagerConfig = new ServiceManagerConfig();
         $serviceManager = new ServiceManager();
 
