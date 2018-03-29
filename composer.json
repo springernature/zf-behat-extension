@@ -3,10 +3,19 @@
     "description": "Extension to integrate Zend Framework to Behat",
     "type": "extension",
     "license": "MIT",
+    "keywords": ["zend", "framework", "behat", "extension"],
     "authors": [
         {
             "name": "Olivier Lechevalier",
-            "email": "olivier.lechevalier@gmail.com"
+            "email": "olivier.lechevalier@springernature.com"
+        },
+        {
+            "name": "Roberto Espinoza",
+            "email": "roberto.espinoza@springernature.com"
+        },
+        {
+            "name": "Pamela Sia",
+            "email": "pamela.sia@springernature.com"
         }
     ],
     "require": {
