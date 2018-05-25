@@ -23,10 +23,10 @@ This extension requires:
 - Behat 3.0+
 - Zend Framework 2.x or 3.x
 
-The recommended installation method is through [Composer](http://getcomposer.org>):
+The recommended installation method is through [Composer](http://getcomposer.org):
 
 ```bash
-    $ composer require --dev behat/symfony2-extension
+    $ composer require --dev springernature/behat-zf-extension
 ```
 
 You can then activate the extension in your `behat.yml`:
@@ -130,6 +130,21 @@ class DefaultContext extends \Behat\MinkExtension\Context\MinkContext
     }
 }
 ```
+
+### Handling file uploads
+
+Zend has php file upload checker built in that makes it impossible to test file uploads in behat. If you try to inject a file it will give you the following error message:
+`File was illegally uploaded. This could be a possible attack`.
+
+To allow the validation to pass in the project `composer.json` file, add to the `autoload-dev` the location to the file. For example:
+
+```json
+    "autoload-dev": {
+        "files": ["vendor/springernature/behat-zf-extension/src/DisablePhpUploadChecks.php"]
+    }
+```
+
+After adding the `files` line do a `composer dumpautoload` to load the file.
 
 Configuration
 -------------
